@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#050510">
+  <title>Black Hole • Intro Join GB</title>
+  <style>
+    *{box-sizing:border-box}
+    body{margin:0;min-height:100vh;padding:28px 16px;display:grid;place-items:center;
+      font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:#f2efff;overflow-x:hidden;
+      background:radial-gradient(ellipse at 50% 0%,#28205c 0,transparent 42%),
+      radial-gradient(circle at 10% 85%,#192c58 0,transparent 30%),#050510}
+    body:before{content:"";position:fixed;width:270px;height:270px;border-radius:50%;
+      top:4%;left:50%;transform:translateX(-50%);
+      background:radial-gradient(circle,#000 0 29%,#111027 30% 37%,#8a62ff66 39%,#36266d55 48%,transparent 68%);
+      filter:drop-shadow(0 0 25px #8b5cff88);pointer-events:none;z-index:-1;animation:float 7s ease-in-out infinite}
+    body:after{content:"";position:fixed;inset:0;pointer-events:none;z-index:-2;opacity:.45;
+      background-image:radial-gradient(2px 2px at 20% 30%,#fff 45%,transparent 60%),
+      radial-gradient(1px 1px at 70% 20%,#b7c9ff 45%,transparent 60%),
+      radial-gradient(2px 2px at 85% 75%,#fff 45%,transparent 60%),
+      radial-gradient(1px 1px at 35% 80%,#c7aaff 45%,transparent 60%);
+      background-size:180px 180px,230px 230px,270px 270px,210px 210px}
+    @keyframes float{50%{transform:translate(-50%,12px) scale(1.04)}}
+    .card{width:min(100%,460px);padding:25px;border:1px solid #8e78d955;border-radius:25px;
+      background:linear-gradient(155deg,#17152beF,#090a19f2);box-shadow:0 20px 70px #000b,0 0 35px #7554c522}
+    .deco{text-align:center;color:#c9baff;font-size:14px;line-height:1.7}
+    h1{text-align:center;font-size:25px;margin:12px 0 6px;letter-spacing:1px;text-shadow:0 0 18px #9c78ff}
+    .sub{text-align:center;color:#bdb7d8;font-size:13px;margin:0 0 20px}
+    .music{display:flex;align-items:center;justify-content:center;gap:10px;margin:0 auto 20px}
+    .music button{width:auto;margin:0;padding:9px 15px;border-radius:30px;font-size:12px}
+    .music span{font-size:12px;color:#c9baff}
+    label{display:block;font-size:13px;font-weight:700;margin:14px 0 7px}
+    input,select{width:100%;padding:13px 14px;border-radius:12px;border:1px solid #514b75;
+      background:#090a18;color:#fff;font:inherit;outline:none}
+    input:focus,select:focus{border-color:#b49aff;box-shadow:0 0 0 3px #9b7aff22}
+    .choices{display:flex;gap:10px}
+    .choices label{flex:1;margin:0;padding:12px;border:1px solid #514b75;border-radius:12px;
+      display:flex;align-items:center;gap:8px;font-weight:500}
+    .choices input{width:auto;accent-color:#a98aff}
+    button{width:100%;border:0;border-radius:13px;padding:14px;margin-top:20px;
+      color:#100d20;background:linear-gradient(110deg,#d6c7ff,#9875ff);
+      font-size:15px;font-weight:800;cursor:pointer}
+    button:active{transform:scale(.99)}
+    .result{display:none;margin-top:20px;padding:15px;border-radius:14px;background:#090a18;border:1px solid #66558d}
+    pre{white-space:pre-wrap;word-break:break-word;font:inherit;font-size:13px;line-height:1.65;margin:0;color:#f4efff}
+    .secondary{background:#30294b;color:#fff;margin-top:10px}
+    .note{text-align:center;color:#aaa3c6;font-size:11px;line-height:1.5;margin:16px 0 0}
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="deco">✦ ⋆｡˚ ☾ BLACK HOLE ZONE ☽ ˚｡⋆ ✦</div>
+    <h1>INTRO JOIN GB</h1>
+    <p class="sub">Isi intro terlebih dahulu sebelum masuk grup ya!</p>
+    <div class="music">
+      <button type="button" id="musicBtn">♫ PUTAR MUSIK</button>
+      <span id="musicStatus">Musik ambient • tekan untuk mulai</span>
+    </div>
+
+    <form id="introForm">
+      <label for="nama">NAMA</label>
+      <input id="nama" name="nama" placeholder="Masukkan nama kamu" maxlength="40" required>
+
+      <label for="umur">UMUR</label>
+      <input id="umur" name="umur" type="number" min="1" max="100" placeholder="Masukkan umur" required>
+
+      <label for="askot">ASKOT</label>
+      <input id="askot" name="askot" placeholder="Asal kota" maxlength="50" required>
+
+      <label for="tiktok">NICK TIKTOK</label>
+      <input id="tiktok" name="tiktok" placeholder="@username TikTok" maxlength="40" required>
+
+      <label for="followers">JUMLAH FOLLOWERS TIKTOK (MINIMAL 20)</label>
+      <input id="followers" name="followers" type="number" min="20" max="1000000000" placeholder="Contoh: 20" required>
+
+      <label for="gender">GENDER</label>
+      <select id="gender" name="gender" required>
+        <option value="">Pilih gender</option>
+        <option>Laki-laki</option>
+        <option>Perempuan</option>
+        <option>Lainnya / tidak ingin menyebutkan</option>
+      </select>
+
+      <label>BOLEH PAKAI FOTO / TIDAK</label>
+      <div class="choices">
+        <label><input type="radio" name="foto" value="Boleh" required> Boleh</label>
+        <label><input type="radio" name="foto" value="Tidak"> Tidak</label>
+      </div>
+      <button type="submit">BUAT INTRO</button>
+    </form>
+
+    <section class="result" id="result" aria-live="polite">
+      <p style="font-weight:800;margin:0 0 10px">Intro kamu sudah siap!</p>
+      <pre id="preview"></pre>
+      <button type="button" id="copyBtn">SALIN INTRO</button>
+      <button type="button" class="secondary" id="joinBtn">LANJUT KE GRUP WHATSAPP</button>
+    </section>
+    <p class="note">Syarat TikTok: minimal 20 followers. Setelah intro disalin, lanjut masuk grup dan kirim intro tersebut di chat grup.</p>
+    <div class="deco" style="margin-top:18px">✦ ⋆｡˚ ☾ THROUGH THE BLACK HOLE ☽ ˚｡⋆ ✦</div>
+  </main>
+<script>
+  const groupLink = "https://chat.whatsapp.com/HVYRU9Wr2cTHqBm1Eydx9c?s=cl&p=a&iam=2";
+  const form = document.getElementById("introForm");
+  const result = document.getElementById("result");
+  const preview = document.getElementById("preview");
+  let introText = "";
+
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+    if (!form.reportValidity()) return;
+    const data = new FormData(form);
+    const followers = Number(data.get("followers"));
+    if (followers < 20) {
+      document.getElementById("followers").setCustomValidity("Followers TikTok minimal 20.");
+      document.getElementById("followers").reportValidity();
+      document.getElementById("followers").setCustomValidity("");
+      return;
+    }
+    introText =
+`✦ ⋆｡˚ ☾ BLACK HOLE ZONE ☽ ˚｡⋆ ✦
+
+*INTRO*
+*NAMA:* ${data.get("nama").trim()}
+*UMUR:* ${data.get("umur")}
+*ASKOT:* ${data.get("askot").trim()}
+*GENDER:* ${data.get("gender")}
+*NICK TIKTOK:* ${data.get("tiktok").trim()}
+*FOLLOWERS TIKTOK:* ${followers}
+*BOLEH PAKAI FOTO / TIDAK:* ${data.get("foto")}
+
+✦ ⋆｡˚ ☾ SEE YOU IN THE GROUP ☽ ˚｡⋆ ✦`;
+    preview.textContent = introText;
+    result.style.display = "block";
+    result.scrollIntoView({behavior:"smooth",block:"nearest"});
+  });
+
+  document.getElementById("copyBtn").addEventListener("click", async function() {
+    try {
+      await navigator.clipboard.writeText(introText);
+      this.textContent = "INTRO TERSALIN ✓";
+    } catch (e) {
+      const area = document.createElement("textarea");
+      area.value = introText; document.body.appendChild(area);
+      area.select(); document.execCommand("copy"); area.remove();
+      this.textContent = "INTRO TERSALIN ✓";
+    }
+  });
+
+  document.getElementById("joinBtn").addEventListener("click", function() {
+    if (!introText) return;
+    window.open(groupLink, "_blank", "noopener,noreferrer");
+  });
+
+  // Musik ambient sederhana dibuat langsung di browser, tanpa file eksternal.
+  let audioContext = null, musicTimer = null, musicOn = false, noteIndex = 0;
+  const notes = [110, 164.81, 196, 146.83, 220, 164.81, 130.81, 196];
+  function playAmbientNote() {
+    if (!audioContext || !musicOn) return;
+    const now = audioContext.currentTime;
+    const osc = audioContext.createOscillator();
+    const gain = audioContext.createGain();
+    osc.type = "sine";
+    osc.frequency.value = notes[noteIndex++ % notes.length];
+    gain.gain.setValueAtTime(0.0001, now);
+    gain.gain.exponentialRampToValueAtTime(0.045, now + 0.35);
+    gain.gain.exponentialRampToValueAtTime(0.0001, now + 2.4);
+    osc.connect(gain); gain.connect(audioContext.destination);
+    osc.start(now); osc.stop(now + 2.5);
+  }
+  document.getElementById("musicBtn").addEventListener("click", async function() {
+    const status = document.getElementById("musicStatus");
+    if (!audioContext) {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      if (!AudioCtx) { status.textContent = "Browser tidak mendukung audio"; return; }
+      audioContext = new AudioCtx();
+    }
+    if (musicOn) {
+      musicOn = false; clearInterval(musicTimer);
+      this.textContent = "♫ PUTAR MUSIK"; status.textContent = "Musik dijeda";
+      return;
+    }
+    await audioContext.resume();
+    musicOn = true; playAmbientNote();
+    musicTimer = setInterval(playAmbientNote, 1800);
+    this.textContent = "Ⅱ JEDA MUSIK"; status.textContent = "Musik ambient sedang diputar";
+  });
+</script>
+</body>
+</html>
